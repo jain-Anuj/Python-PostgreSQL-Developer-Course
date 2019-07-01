@@ -23,4 +23,6 @@ class User:
         with CursorFromConnectionFromPool() as cursor:
             cursor.execute('SELECT * FROM users where email = %s',(email,))
             user_data = cursor.fetchone()
+            if user_data == None:
+                return None
             return cls(email = user_data[1], first_name=user_data[2], last_name=user_data[3], id=user_data[0])
