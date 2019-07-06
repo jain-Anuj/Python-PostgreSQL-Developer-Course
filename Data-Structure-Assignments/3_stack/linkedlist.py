@@ -17,7 +17,7 @@ class LinkedList:
 
     def remove_start_from_list(self):
         if not self.__root:
-            raise LookupError("can't pop, the list is empty")
+            raise RuntimeError("can't pop, the list is empty")
         removed_node = self.__root
         self.__root = self.__root.get_next()
         return removed_node
